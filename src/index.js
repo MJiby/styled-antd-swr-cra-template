@@ -1,17 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom'
+import axios from 'axios';
+
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+// antd 꼭 넣어주기
+import 'antd/dist/antd.css';
+// 백엔드
+import { backendUrl } from './config/config'
+
+axios.defaults.withCredentials = true;
+axios.defaults.baseURL = backendUrl
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
